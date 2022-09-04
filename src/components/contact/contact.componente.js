@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
-import emailjs from '@emailjs/browser';
+//import emailjs from '@emailjs/browser';
 
 import './contact.style.css';
 
@@ -29,8 +29,8 @@ const ContactUs = () => {
                 res.json()
                 // console.log('res', res);
             })
-            .then((res) => {
-                const resData = res;
+            .then(async (res) => {
+                const resData = await res;
                 console.log(resData);
                 if (resData.status === "success") {
                     alert("Message Sent");
@@ -41,6 +41,7 @@ const ContactUs = () => {
             .then(() => {
                 reset();
             });
+        console.log(response);
 
         // e.preventDefault();
         // const { firstName, lastName, email, enquiry } = data;
