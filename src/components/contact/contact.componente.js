@@ -7,33 +7,60 @@ import './contact.style.css';
 
 const ContactUs = () => {
 
+
+
     const { t } = useTranslation();
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
         mode: "onBlur"
     });
 
-    const onSubmit = (data, e) => {
+
+    const onSubmit = async (data, e) => {
         e.preventDefault();
 
-        const { firstName, lastName, email, enquiry } = data;
-        const subject = data.subject ? data.subject : '';
-        const message = data.message ? data.message : '';
-
-        emailjs.send(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, {
-            first_name: firstName,
-            last_name: lastName,
-            email: email,
-            enquiry: enquiry,
-            subject: subject,
-            message: message
-        }, process.env.REACT_APP_EMAIL_PUBLIC_KEY)
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
+        const response = await fetch("http://localhost:3001/send", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => {
+                res.json()
+                // console.log('res', res);
+            })
+            .then((res) => {
+                const resData = res;
+                console.log(resData);
+                if (resData.status === "success") {
+                    alert("Message Sent");
+                } else if (resData.status === "fail") {
+                    alert("Message failed to send");
+                }
+            })
+            .then(() => {
+                reset();
             });
-        document.getElementById("id-form").reset();
-        reset();
+
+        // e.preventDefault();
+        // const { firstName, lastName, email, enquiry } = data;
+        // const subject = data.subject ? data.subject : '';
+        // const message = data.message ? data.message : '';
+        // emailjs.send(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, {
+        //     first_name: firstName,
+        //     last_name: lastName,
+        //     email: email,
+        //     enquiry: enquiry,
+        //     subject: subject,
+        //     message: message
+        // }, process.env.REACT_APP_EMAIL_PUBLIC_KEY)
+        //     .then((result) => {
+        //         console.log(result.text);
+        //     }, (error) => {
+        //         console.log(error.text);
+        //     });
+        // document.getElementById("id-form").reset();
+        // reset();
 
     };
 
