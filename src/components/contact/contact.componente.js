@@ -93,8 +93,8 @@ const ContactUs = () => {
                         <div className="contact-enquiry">{t('form.title')}</div>
 
                         <form id="id-form" onSubmit={handleSubmit(onSubmit)}>
-                            <input style={{ marginLeft: 100 }} type="radio" id="cooperation" name="enquiry" value="cooperation" {...register("enquiry")} />
-                            <label style={{ marginRight: 80 }}>&nbsp; {t('cooperation')}</label>
+                            <input style={{ marginLeft: 50 }} type="radio" id="cooperation" name="enquiry" value="cooperation" {...register("enquiry")} />
+                            <label style={{ marginRight: 60 }}>&nbsp; {t('cooperation')}</label>
                             <input type="radio" id="enquiry" name="enquiry" value="career enquiry" {...register("enquiry")} />
                             <label >&nbsp; {t('career.enquiry')}</label>
                             <br /><br />

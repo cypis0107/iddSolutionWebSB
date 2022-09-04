@@ -97,6 +97,8 @@ export default Menu;
 
 
 /*
+cooperaiton enqary - zapytanie o wspolprace carrier oputunite - mozliwosci kariery
+
 HOME  ABOUTUS SERVICES   REFERENCES  CONTACTUS
 Home tak jak baltec
 SERVICES -> INSPECTION DESING DOCUMENTATION
