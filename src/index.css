@@ -1,13 +1,91 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: 'Varela Round', sans-serif;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  scroll-padding-top: 8rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+:root {
+  --main-font: 'Varela Round', sans-serif;
+  --sections-font: 'IBM Plex Sans', sans-serif;
+  --roboto-font: 'Roboto', sans-serif;
+  --bg-color: #EFF2F2;
+  --secound-bg-color: #f9f9f9;
+  --text-color: #161616;
+  --text-sec-color: #ffffff;
+  --red-color: #ef0454;
+  --logo-color: #362d97;
+  --grey-color: #6a6a6a;
+  --blue-color: #004B82;
+  --big-font: 5.7rem;
+
+
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+
+
+.font-size-1 {
+  font-size: 1rem;
+}
+
+.font-size-1-1 {
+  font-size: 1.1rem;
+}
+
+.font-size-1-2 {
+  font-size: 1.2rem;
+}
+
+.font-size-1-3 {
+  font-size: 1.3rem;
+}
+
+.font-size-1-4 {
+  font-size: 1.4rem;
+}
+
+
+
+
+.dark-primary-color {
+  background: #455A64;
+}
+
+.default-primary-color {
+  background: #607D8B;
+}
+
+.light-primary-color {
+  background: #CFD8DC;
+}
+
+.text-primary-color {
+  color: #FFFFFF;
+}
+
+.accent-color {
+  background: #FF4081;
+}
+
+.primary-text-color {
+  color: #212121;
+}
+
+.secondary-text-color {
+  color: #757575;
+}
+
+.divider-color {
+  border-color: #BDBDBD;
 }
