@@ -1,19 +1,32 @@
-
+import { useContext, useRef } from 'react';
 import { useTranslation } from 'react-i18next'
+import { PdfContext } from '../../contexts/pdf.context';
 import BgImage from '../../assets/circular-bg.png'
-//import ReferencesImg from '../../assets/references.jpeg'
-import RefImg from '../../assets/1.jpeg';
-import AnimationBox from '../services/animation.box'
+import BaltecImg from '../../assets/baltec-logo.png';
+import TeslaImg from '../../assets/tesla-logo.png';
+import ReferencesBox from './references.box';
+import PdfView from './pdf.view';
+import BaltecPdf from './ref_files/reference-baltec.pdf'
+import CopyPdf from './ref_files/sample.pdf'
+
 import './references.style.css'
 
 
 const References = () => {
-    const { t } = useTranslation();
 
-    const refList = ['reference.a', 'reference.b', 'referenece.c'];
+    const { pdfNumberClick, setPdfNumerClick } = useContext(PdfContext)
+    const { t } = useTranslation();
+    const refScroll = useRef(null);
+
+    const goToScroll = () => refScroll.current.scrollIntoView({ behavior: "smooth" });
+
+    const handleClick = (num) => {
+        setPdfNumerClick(num);
+        goToScroll();
+    }
 
     return (
-        <section id='references' style={{
+        <section ref={refScroll} id='references' style={{
             scrollMarginTop: '-30px',
             backgroundImage: `url(${BgImage})`,
             backgroundRepeat: "no-repeat",
@@ -22,20 +35,46 @@ const References = () => {
             backgroundSize: 'cover'
 
         }}>
-
             <div className='references-container'>
                 <div className='ref-title-box'>
                     <div className='ref-title'>{t('references')}</div>
                 </div>
+
+
                 <div className='ref-box'>
-                    <AnimationBox img={RefImg} title={t('reference1')} list={refList} />
+                    <span onClick={() => handleClick(1)} ><ReferencesBox img={BaltecImg} /></span>
+                    <span  ><ReferencesBox img={TeslaImg} /></span>
                 </div>
-                {/* <div className='ref-box-btm'></div> */}
-                {/* <img className='ref-img' src={ReferencesImg} alt=''></img> */}
+
+                {(() => {
+                    switch (pdfNumberClick) {
+                        case 1: return <PdfView pdf={BaltecPdf} />
+                        case 2: return <PdfView pdf={CopyPdf} />
+                        default:
+                            return null
+                    }
+
+                })()}
+
 
             </div>
-        </section>
+        </section >
     )
 }
 
 export default References;
+
+
+
+
+// const divVisable = document.getElementsByClassName("pdf-container")[0];
+// if (divVisable) { divVisable.style.display = 'flex'; }
+//document.body.classList.add("no-scroll")
+// console.log(pdfNumberClick, divVisable)
+
+// {/* <div className='ref-box-btm'></div> */ }
+// {/* <img className='ref-img' src={ReferencesImg} alt=''></img> */ }
+
+// {/* <button onClick={() => setOpenWindow(true)}>open</button>
+//                 {openWindow && <RenderInWindow>hello world</RenderInWindow>
+//                 } */}

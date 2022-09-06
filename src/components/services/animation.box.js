@@ -9,7 +9,6 @@ const AnimationBox = (props) => {
 
     return (
         <div className='services-box' onClick={() => { setChangeBoxSize(!changeBoxSize) }} onMouseLeave={() => { !changeBoxSize && setChangeBoxSize(!changeBoxSize) }}>
-
             <img
                 className={`${changeBoxSize ? 'services-img' : 'services-img services-img-up'} `}
                 src={img}

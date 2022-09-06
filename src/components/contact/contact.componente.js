@@ -2,10 +2,13 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
 //import emailjs from '@emailjs/browser';
 
+
 import './contact.style.css';
 
 
+
 const ContactUs = () => {
+
 
 
 
@@ -15,19 +18,21 @@ const ContactUs = () => {
     });
 
 
-    const onSubmit = async (data, e) => {
-        e.preventDefault();
+    async function submitEmail(data) {
 
-        const response = await fetch("http://localhost:3001/send", {
+        await fetch("http://localhost:3001/send", {
             method: "POST",
+            mode: 'no-cors',
             headers: {
-                "Content-type": "application/json",
+                'Content-Type': 'application/json',
+                // 'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS'
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify({ data })
         })
             .then((res) => {
+                console.log('res', res)
                 res.json()
-                // console.log('res', res);
             })
             .then(async (res) => {
                 const resData = await res;
@@ -37,33 +42,65 @@ const ContactUs = () => {
                 } else if (resData.status === "fail") {
                     alert("Message failed to send");
                 }
-            })
-            .then(() => {
-                reset();
             });
-        console.log(response);
+    }
 
-        // e.preventDefault();
-        // const { firstName, lastName, email, enquiry } = data;
-        // const subject = data.subject ? data.subject : '';
-        // const message = data.message ? data.message : '';
-        // emailjs.send(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, {
-        //     first_name: firstName,
-        //     last_name: lastName,
-        //     email: email,
-        //     enquiry: enquiry,
-        //     subject: subject,
-        //     message: message
-        // }, process.env.REACT_APP_EMAIL_PUBLIC_KEY)
-        //     .then((result) => {
-        //         console.log(result.text);
-        //     }, (error) => {
-        //         console.log(error.text);
-        //     });
-        // document.getElementById("id-form").reset();
-        // reset();
 
-    };
+
+
+    // const onSubmit = async (data, e) => {
+    //     e.preventDefault();
+
+    //     const response = await fetch("http://localhost:3001/send", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-type": "application/json",
+    //         },
+    //         body: JSON.stringify(data),
+    //     })
+    //         .then((res) => {
+    //             res.json()
+    //             // console.log('res', res);
+    //         })
+    //         .then(async (res) => {
+    //             const resData = await res;
+    //             console.log(resData);
+    //             if (resData.status === "success") {
+    //                 alert("Message Sent");
+    //             } else if (resData.status === "fail") {
+    //                 alert("Message failed to send");
+    //             }
+    //         })
+    //         .then(() => {
+    //             reset();
+    //         });
+
+
+
+
+    // console.log(response);
+
+    // e.preventDefault();
+    // const { firstName, lastName, email, enquiry } = data;
+    // const subject = data.subject ? data.subject : '';
+    // const message = data.message ? data.message : '';
+    // emailjs.send(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, {
+    //     first_name: firstName,
+    //     last_name: lastName,
+    //     email: email,
+    //     enquiry: enquiry,
+    //     subject: subject,
+    //     message: message
+    // }, process.env.REACT_APP_EMAIL_PUBLIC_KEY)
+    //     .then((result) => {
+    //         console.log(result.text);
+    //     }, (error) => {
+    //         console.log(error.text);
+    //     });
+    // document.getElementById("id-form").reset();
+    // reset();
+
+    //};
 
 
     return (
@@ -92,7 +129,7 @@ const ContactUs = () => {
                     <div className='contact-box-form'>
                         <div className="contact-enquiry">{t('form.title')}</div>
 
-                        <form id="id-form" onSubmit={handleSubmit(onSubmit)}>
+                        <form id="id-form" onSubmit={handleSubmit(submitEmail)}>
                             <input style={{ marginLeft: 50 }} type="radio" id="cooperation" name="enquiry" value="cooperation" {...register("enquiry")} />
                             <label style={{ marginRight: 60 }}>&nbsp; {t('cooperation')}</label>
                             <input type="radio" id="enquiry" name="enquiry" value="career enquiry" {...register("enquiry")} />

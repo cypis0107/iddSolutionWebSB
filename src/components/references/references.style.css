@@ -3,16 +3,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     width: 100%;
     height: 85vh;
     /* border: 2px solid rgb(70, 0, 128); */
 }
 
-/* .ref-img {
-    width: 100%;
-    height: 20%;
-} */
 
 .ref-title-box {
     margin-top: 80px;
@@ -34,10 +29,12 @@
 
 .ref-box {
     display: flex;
-    gap: 20px;
-    /* justify-content: space-around; */
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
     width: 80%;
-    height: 73%;
+    height: 70%;
     /* border: 2px solid rgb(70, 0, 128); */
 }
 
@@ -47,4 +44,73 @@
     background: var(--blue-color);
     /* border: 2px solid rgb(70, 0, 128); */
 
+}
+
+
+/* each box */
+.box-rf {
+    padding: 10px;
+    width: 280px;
+    height: 200px;
+    border: 2px solid var(--blue-color);
+    border-radius: 10px;
+    transition: all 0.6s;
+
+}
+
+.box-rf:hover {
+    cursor: pointer;
+    width: 300px;
+    height: 220px;
+    transition: ease-in-out 0.6s;
+}
+
+.box-rf-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.pdf-container {
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    padding-top: 20px;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(106, 106, 106, 0.8);
+    z-index: 10;
+    animation: pdf-animation 2s ease normal forwards;
+}
+
+@keyframes pdf-animation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.pdf-box {
+    height: 100%;
+    max-height: 850px;
+    overflow: auto;
+}
+
+.close-button {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+
+.react-pdf__Page {
+    margin-top: 5px;
+}
+
+.react-pdf__Page__textContent {
+    border: 2px solid var(--grey-color);
+    box-shadow: 5px 5px 5px 1px var(--grey-color);
 }
