@@ -42,6 +42,8 @@ const ContactUs = () => {
                 } else if (resData.status === "fail") {
                     alert("Message failed to send");
                 }
+            }).then(() => {
+                reset();
             });
     }
 
