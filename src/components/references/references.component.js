@@ -1,7 +1,7 @@
 import { useContext, useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next'
 import { PdfContext } from '../../contexts/pdf.context';
-import ReferencesImg from '../../assets/references1.jpeg'
+//import ReferencesImg from '../../assets/references1.jpeg'
 import BgImage from '../../assets/circular-bg.png'
 import BaltecImg from '../../assets/baltec-logo.png';
 import TeslaImg from '../../assets/tesla-logo.png';
