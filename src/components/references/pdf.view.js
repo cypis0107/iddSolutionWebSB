@@ -32,7 +32,7 @@ const PdfView = (props) => {
                     ))}
                 </Document>
             </div>
-            <Close size={50} color={'#362d97'} className='close-button' onClick={handleClick} />
+            <Close size={60} color={'#362d97'} className='close-button' onClick={handleClick} />
 
         </div>
     );

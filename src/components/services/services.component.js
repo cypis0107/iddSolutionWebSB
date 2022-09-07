@@ -1,4 +1,4 @@
-
+import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import InspectionImg from '../../assets/4.jpeg';
 import DesignImg from '../../assets/3.jpeg';
@@ -11,6 +11,17 @@ import './services.style.css'
 const Services = () => {
 
     const { t } = useTranslation();
+
+    const myRef = useRef();
+    const [elementIsVisable, setElementIsVisable] = useState();
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+            setElementIsVisable(entry.isIntersecting);
+        })
+        observer.observe(myRef.current)
+
+    }, [])
 
     const inspectionList = ['inspection.a', 'inspection.b', 'inspection.c', 'inspection.d'];
     const desingList = ['design.a', 'design.b', 'design.c'];
@@ -27,7 +38,7 @@ const Services = () => {
 
             <div className='services-container'>
 
-                <div className='services-title'>
+                <div ref={myRef} className={`${elementIsVisable ? 'services-title-anim' : 'services-title'}`}>
                     {t('services')}
                 </div>
 
@@ -41,6 +52,5 @@ const Services = () => {
         </section>
     )
 }
-
 export default Services;
 

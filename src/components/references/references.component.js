@@ -1,9 +1,12 @@
-import { useContext, useRef } from 'react';
+import { useContext, useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next'
 import { PdfContext } from '../../contexts/pdf.context';
+import ReferencesImg from '../../assets/references1.jpeg'
 import BgImage from '../../assets/circular-bg.png'
 import BaltecImg from '../../assets/baltec-logo.png';
 import TeslaImg from '../../assets/tesla-logo.png';
+import LogoStarImg from '../../assets/logo-star.png';
+//import AkerImg from '../../assets/aker.svg';
 import ReferencesBox from './references.box';
 import PdfView from './pdf.view';
 import BaltecPdf from './ref_files/reference-baltec.pdf'
@@ -17,6 +20,19 @@ const References = () => {
     const { pdfNumberClick, setPdfNumerClick } = useContext(PdfContext)
     const { t } = useTranslation();
     const refScroll = useRef(null);
+
+    const refTitle = useRef();
+    const [elementIsVisable, setElementIsVisable] = useState();
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+            setElementIsVisable(entry.isIntersecting);
+        })
+        observer.observe(refTitle.current)
+
+    }, [])
+
 
     const goToScroll = () => refScroll.current.scrollIntoView({ behavior: "smooth" });
 
@@ -33,17 +49,17 @@ const References = () => {
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center center',
             backgroundSize: 'cover'
-
         }}>
             <div className='references-container'>
-                <div className='ref-title-box'>
-                    <div className='ref-title'>{t('references')}</div>
+                <div ref={refTitle} className='ref-title-box'>
+                    <div className={`${elementIsVisable ? 'ref-title ref-title-anim' : 'ref-title'}`}>{t('references')}</div>
                 </div>
-
 
                 <div className='ref-box'>
                     <span onClick={() => handleClick(1)} ><ReferencesBox img={BaltecImg} /></span>
                     <span  ><ReferencesBox img={TeslaImg} /></span>
+                    {/* <span  ><ReferencesBox img={AkerImg} /></span> */}
+
                 </div>
 
                 {(() => {
@@ -55,8 +71,12 @@ const References = () => {
                     }
 
                 })()}
+                <div className='ref-bottom' >
+                    <img className='ref-img' src={LogoStarImg} alt='' />
+                </div>
 
 
+                {/* <img className='ref-img' src={ReferencesImg} alt=''></img> */}
             </div>
         </section >
     )

@@ -1,15 +1,13 @@
 import { useForm } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
+import { BiBroadcast } from 'react-icons/bi';
 //import emailjs from '@emailjs/browser';
 
 
 import './contact.style.css';
 
 
-
 const ContactUs = () => {
-
-
 
 
     const { t } = useTranslation();
@@ -114,19 +112,19 @@ const ContactUs = () => {
 
                     <div className='contact-box-office'>
                         <div className='contact-title'>{t('contactus')}</div>
-
-                        <p className='contact-box-title'>{t('head.office.title')}</p>
-                        <p className='contact-box-address font-size-1-4'>{t('head.office.street')}</p>
-                        <p className='contact-box-address font-size-1-4'>{t('head.office.zip')} {t('head.office.city')}</p>
-                        <p className='contact-box-address font-size-1-4'>{t('head.office.country')}</p>
-                        <br /><br /><br />
-                        <p className='contact-box-address font-size-1-2'>{t('tel.mobile')} +48 531 810 519</p>
-                        <br />
-                        <a className='contact-box-address font-size-1-2' href="mailto:sylwester@iddsolution.pl">sylwester@iddsolution.pl</a>
-
+                        <div className='contact-box-address'>
+                            <p className='contact-box-title'>{t('head.office.title')}</p>
+                            <p className='font-size-1-4'>{t('head.office.street')}</p>
+                            <p className='font-size-1-4'>{t('head.office.zip')} {t('head.office.city')}</p>
+                            <p className='font-size-1-4'>{t('head.office.country')}</p>
+                            <br /><br />
+                            <p className='font-size-1-2'>{t('tel.mobile')} +48 531 810 519</p>
+                            <br />
+                            <a className='font-size-1-2' href="mailto:sylwester@iddsolution.pl">sylwester@iddsolution.pl</a>
+                        </div>
                     </div>
-
-                    <div className="contact-separator" />
+                    {/* <div className="contact-separator" /> */}
+                    <BiBroadcast size={120} color={'#607D8B'} />
 
                     <div className='contact-box-form'>
                         <div className="contact-enquiry">{t('form.title')}</div>

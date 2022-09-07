@@ -1,10 +1,25 @@
+import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import IndustryAImg from '../../assets/industry-2.jpg';
 
 import './about.style.css'
 
 const About = () => {
+
     const { t } = useTranslation();
+
+    const myRef = useRef();
+    const [elementIsVisable, setElementIsVisable] = useState();
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+            setElementIsVisable(entry.isIntersecting);
+        })
+        observer.observe(myRef.current)
+
+    }, [])
+
+
     return (
         <div id='about' className='about-container'
             style={{
@@ -16,8 +31,9 @@ const About = () => {
                 backgroundSize: '40% 100%'
 
             }}>
-            <div className='about-box '>
-                <div className='about-title'>{t('aboutus')}<hr /></div>
+            <div ref={myRef} className='about-box '>
+                <div className={`${elementIsVisable ? 'about-title about-title-anim' : 'about-title'}`}>{t('aboutus')}<hr /></div>
+
                 <div className='about-txt'>
                     <br /><br /><br />
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.

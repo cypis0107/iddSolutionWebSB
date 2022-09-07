@@ -1,3 +1,4 @@
+import { useState, useRef, useEffect } from 'react';
 import IndustryHImg from '../../assets/industry-1.jpeg';
 import { useTranslation } from 'react-i18next';
 
@@ -6,6 +7,16 @@ import './home.style.css';
 const Home = () => {
     const { t } = useTranslation();
 
+    const myRef = useRef();
+    const [elementIsVisable, setElementIsVisable] = useState();
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+            setElementIsVisable(entry.isIntersecting);
+        })
+        observer.observe(myRef.current)
+
+    }, [])
     return (
         <section id='home'
             style={{
@@ -18,8 +29,8 @@ const Home = () => {
 
             }}>
             <div className='home-container' >
-                {/* <h1>We provide <br />high-quality services</h1> */}
-                <span className='home-title'>{t('home.title.o')}<br />{t('home.title.t')} </span>
+                <div ref={myRef} className={`${elementIsVisable ? 'home-title home-title-anim' : 'home-title'}`}>
+                    {t('home.title.o')}<br />{t('home.title.t')} </div>
             </div>
         </section>
     )
