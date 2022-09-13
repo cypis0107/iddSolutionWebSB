@@ -64,7 +64,7 @@ const ContactUs = () => {
                     <div className='contact-box-form'>
                         <div className="contact-enquiry">{t('form.title')}</div>
 
-                        <form name="fileForm" enctype="multipart/form-data" data-netlify="true">
+                        <form name="fileForm" encType="multipart/form-data" data-netlify="true">
                             <p>
                                 <label>
                                     <span>Name:</span>
