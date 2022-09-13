@@ -75,6 +75,10 @@ const ContactUs = () => {
                             <p>
                                 <label>Message: <textarea name="message"></textarea></label>
                             </p>
+                            <label>
+                                <span>Add file:</span>
+                                <input name="file" type="file" />
+                            </label>
                             <p>
                                 <button type="submit">Send</button>
                             </p>
