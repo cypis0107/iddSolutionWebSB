@@ -14,7 +14,7 @@ let transporter = nodemailer.createTransport({
     auth: {
         type: "OAuth2",
         user: 'iddsolutionform@gmail.com',//process.env.REACT_APP_EMAIL,
-        pass: 'Flatron7', //process.env.REACT_APP_WORD,
+        pass: 'F', //process.env.REACT_APP_WORD,
         clientId: '37763751630-012gr0ls0g8u1r921s10cdd9s5dvbj0g.apps.googleusercontent.com', //process.env.REACT_APP_OAUTH_CLIENTID,
         clientSecret: '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', //process.env.REACT_APP_OAUTH_CLIENT_SECRET,
         refreshToken: '1//042RL3p3ykM4ICgYIARAAGAQSNwF-L9Irtm3Gxib672bOruJUj_B3LpE13xq8VLA804OQ1nJrtTLp0voVClljutlBLuF5K-XUi-s', //process.env.REACT_APP_OAUTH_REFRESH_TOKEN,
