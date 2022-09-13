@@ -6,12 +6,8 @@ const cors = require("cors");
 require("dotenv").config();
 
 
-
-
-
-// middleware
 app.use(express.json());
-//app.use(cors());
+app.use(cors());
 
 let transporter = nodemailer.createTransport({
     service: "gmail",
@@ -21,11 +17,28 @@ let transporter = nodemailer.createTransport({
         pass: 'Flatron7', //process.env.REACT_APP_WORD,
         clientId: '37763751630-012gr0ls0g8u1r921s10cdd9s5dvbj0g.apps.googleusercontent.com', //process.env.REACT_APP_OAUTH_CLIENTID,
         clientSecret: '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', //process.env.REACT_APP_OAUTH_CLIENT_SECRET,
-        refreshToken: '1//04iK9YNIW9_A7CgYIARAAGAQSNwF-L9IraPcltFUi2YESZncThDzFHpi-goICek6X1UfEfAHNonlsHsI-BM6g-2Aa6XMmAIX1nT8', //process.env.REACT_APP_OAUTH_REFRESH_TOKEN,
+        refreshToken: '1//042RL3p3ykM4ICgYIARAAGAQSNwF-L9Irtm3Gxib672bOruJUj_B3LpE13xq8VLA804OQ1nJrtTLp0voVClljutlBLuF5K-XUi-s', //process.env.REACT_APP_OAUTH_REFRESH_TOKEN,
+        accessToken: 'ya29.a0AVA9y1tE66x0YTWfleZ2sL3fh1yFgejYitPYqTFQkkRKR54n1K6tn87w1jmSVcr_9-kiW7dwGidnsknR4VNLaFmlGmu2ivfPelozp_2JKoZ0a_XvwXSJ4zh9-jF2V5dfQsOPUX9oAO-zngTQNlQEIjn2rumiaCgYKATASAQASFQE65dr8ZiMVs39DN-drIuGsgPL90Q0163'
     },
     debug: true, // show debug output
     logger: true // log information in console
 });
+
+
+// let transporter = nodemailer.createTransport({
+//     host: "SMTP.DPOCZTA.PL",
+//     port: 25,
+//     secure: false,
+
+//     auth: {
+//         user: 'form@iddsolution.pl',
+//         pass: 'Flatron7'
+//     },
+//     debug: true, 
+//     logger: true 
+// });
+
+
 
 transporter.verify((err, success) => {
     err
@@ -36,43 +49,39 @@ transporter.verify((err, success) => {
 
 app.post("/send", function (req, res) {
 
+
     let mailOptions = {
-        From: `${req.body.data.email}`,
-        to: 'iddsolutionform@gmail.com',
-        subject: `Message from: ${req.body.data.email} (${req.body.data.firstName})`,
-        text: `${req.body.data.message}`
+        from: `${req.body.data.email}`,
+        to: 'form@iddsolution.pl',
+        subject: `Message from: ${req.body.data.email} `,
+        text: `${req.body.data.message}`,
+        attachments: [
+            {   // file on disk as an attachment
+                filename: 'test.pdf',
+                path: './src/components/references/ref_files/sample.pdf' // stream this file
+            },
+        ]
     };
 
-    // let mailOptions = {
-    //     from: "test@gmail.com",
-    //     to: 'iddsolutionform@gmail.com', //process.env.REACT_APP_EMAIL,
-    //     subject: "Nodemailer API",
-    //     text: "Hi from API",
-    // };
-    // transporter.sendMail(mailOptions, function (err, data) {
-    //     if (err) {
-    //         console.log("Error " + err);
-    //     } else {
-    //         console.log("Email sent successfully");
-    //         res.json({ status: "Email sent" });
-    //     }
-    // });
+
 
     transporter.sendMail(mailOptions, function (err, data) {
         if (err) {
+            console.log('Email error:', err)
             res.json({
                 status: "fail",
             });
+
         } else {
-            console.log("== Message Sent ==");
+            console.log("Email Sent" + data.response)
             res.json({
                 status: "success",
             });
         }
     });
 
-});
 
+});
 
 
 const port = 3001;
@@ -82,7 +91,19 @@ app.listen(port, () => {
 
 
 
+/*
+ attachments: [
+        {   // file on disk as an attachment
+            filename: 'text3.gif',
+            path: '/assets/nyan.gif' // stream this file
+        },
+    ]
 
+
+     html: `<p><b>Hello</b> to myself <img src="cid:note@example.com"/></p>
+        <p>Here's a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@example.com"/></p>`,
+
+*/
 
 
 

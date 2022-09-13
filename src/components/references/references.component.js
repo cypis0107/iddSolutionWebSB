@@ -1,12 +1,10 @@
 import { useContext, useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next'
 import { PdfContext } from '../../contexts/pdf.context';
-//import ReferencesImg from '../../assets/references1.jpeg'
 import BgImage from '../../assets/circular-bg.png'
 import BaltecImg from '../../assets/baltec-logo.png';
 import TeslaImg from '../../assets/tesla-logo.png';
-import LogoStarImg from '../../assets/logo-star.png';
-//import AkerImg from '../../assets/aker.svg';
+import LogoImg from '../../assets/logo1.svg';
 import ReferencesBox from './references.box';
 import PdfView from './pdf.view';
 import BaltecPdf from './ref_files/reference-baltec.pdf'
@@ -51,17 +49,27 @@ const References = () => {
             backgroundSize: 'cover'
         }}>
             <div className='references-container'>
-                <div ref={refTitle} className='ref-title-box'>
-                    <div className={`${elementIsVisable ? 'ref-title ref-title-anim' : 'ref-title'}`}>{t('references')}</div>
+
+                {/* <div className='ref-bottom' >
+
+                    <img className='ref-img' src={LogoStarImg} alt='' />
+                </div> */}
+
+                <div className='ref-left'>
+                    <img className='rf-img' src={LogoImg} alt='' />
                 </div>
+                <div className='ref-center '>
+                    <div ref={refTitle} className='ref-title-box'>
+                        <div className={`${elementIsVisable ? 'ref-title ref-title-anim' : 'ref-title'}`}>{t('references')}</div>
+                    </div>
 
-                <div className='ref-box'>
-                    <span onClick={() => handleClick(1)} ><ReferencesBox img={BaltecImg} /></span>
-                    <span  ><ReferencesBox img={TeslaImg} /></span>
-                    {/* <span  ><ReferencesBox img={AkerImg} /></span> */}
+                    <div className='ref-box'>
+                        <span onClick={() => handleClick(1)} ><ReferencesBox img={BaltecImg} /></span>
+                        <span  ><ReferencesBox img={TeslaImg} /></span>
+                        <span  ><ReferencesBox img={TeslaImg} /></span>
 
+                    </div>
                 </div>
-
                 {(() => {
                     switch (pdfNumberClick) {
                         case 1: return <PdfView pdf={BaltecPdf} />
@@ -71,12 +79,10 @@ const References = () => {
                     }
 
                 })()}
-                <div className='ref-bottom' >
-                    <img className='ref-img' src={LogoStarImg} alt='' />
-                </div>
 
 
-                {/* <img className='ref-img' src={ReferencesImg} alt=''></img> */}
+
+
             </div>
         </section >
     )

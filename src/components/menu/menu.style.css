@@ -25,15 +25,20 @@
     transition: ease .80s;
 }
 
+
+
+
 .logo {
     width: 280px;
-    height: 75px;
+    height: 95px;
     transition: ease .80s;
+    /* border: 2px solid red; */
+
 }
 
 .logo-small {
     width: 260px;
-    height: 65px;
+    height: 75px;
     transition: ease .80s;
 }
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" version="1.1" viewBox="0 0 20 20" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+
+	<polygon points="14.464 0 10.446 0 10.446 9.241 19.687 9.241 19.687 5.223 14.464 5.223" fill="#b2b2b2"/>
+	<polygon points="9.241 0 0 0 0 19.687 19.687 19.687 19.687 10.446 9.241 10.446" fill="#8996a0"/>
+	
+
+<path transform="scale(.25)" d="m41.864 18.475v-18.305h15.932v21.017h20.678v15.593h-36.61z" fill="#acb4b9" stroke-width=".33898"/><path d="m15.805 2.0763v-1.9491h3.8982v3.8982h-3.8982z" fill="#cccfd1" stroke-width=".084745"/></svg>

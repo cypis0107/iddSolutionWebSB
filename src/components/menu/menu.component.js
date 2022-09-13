@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Fragment } from 'react';
-import Logo from '../../assets/idd-solution-logo.jpg';
+//import Logo from '../../assets/idd-solution-logo.jpg';
+import AkImg from '../../assets/logoN.svg';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 
@@ -36,7 +37,10 @@ const Menu = () => {
 
         <Fragment>
             <div className={`nav-header nav-hook-${isScrolling ? 'off' : 'on'}`}>
-                <a href='#home'><img className={`logo${!isScrolling ? '-small' : ''}`} src={Logo} alt='Home' /> </a>
+                {/* <img className='logoN' src={AkImg} alt='' /> */}
+                <a href='#home'><img className={`logo${!isScrolling ? '-small' : ''}`} src={AkImg} alt='Home' /> </a>
+
+                {/* <a href='#home'><img className={`logo${!isScrolling ? '-small' : ''}`} src={Logo} alt='Home' /> </a> */}
 
                 <div className='navlist'>
 
