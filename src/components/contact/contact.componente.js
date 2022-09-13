@@ -1,9 +1,9 @@
 
-import { useForm } from "react-hook-form";
+//import { useForm } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
 import { BiBroadcast } from 'react-icons/bi';
 import bgImg from '../../assets/1.jpeg';
-import emailjs from '@emailjs/browser';
+//import emailjs from '@emailjs/browser';
 
 import './contact.style.css';
 
@@ -13,9 +13,9 @@ const ContactUs = () => {
 
 
     const { t } = useTranslation();
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({
-        mode: "onBlur"
-    });
+    // const { register, handleSubmit, reset, formState: { errors } } = useForm({
+    //     mode: "onBlur"
+    // });
 
 
     // const submitEmail = (event) => {
