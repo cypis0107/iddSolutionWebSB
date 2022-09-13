@@ -64,7 +64,7 @@ const ContactUs = () => {
                     <div className='contact-box-form'>
                         <div className="contact-enquiry">{t('form.title')}</div>
 
-                        <form name="contact" method="post">
+                        <form name="contact" method="post" encType="multipart/form-data">
                             <input type="hidden" name="form-name" value="contact" />
                             <p>
                                 <label>Your Name: <input type="text" name="name" /></label>
