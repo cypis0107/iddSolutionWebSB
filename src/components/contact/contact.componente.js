@@ -66,22 +66,45 @@ const ContactUs = () => {
 
                         <form name="contact" method="post" encType="multipart/form-data">
                             <input type="hidden" name="form-name" value="contact" />
-                            <p>
-                                <label>Your Name: <input type="text" name="name" /></label>
-                            </p>
-                            <p>
-                                <label>Your Email: <input type="email" name="email" /></label>
-                            </p>
-                            <p>
-                                <label>Message: <textarea name="message"></textarea></label>
-                            </p>
-                            <label>
-                                <span>Add file:</span>
-                                <input name="file" type="file" />
+
+                            <input type="radio" name="enquiry" value="cooperation" />
+                            <label >&nbsp; {t('cooperation')}</label>
+                            <input type="radio" name="enquiry" value="career enquiry" />
+                            <label >&nbsp; {t('career.enquiry')}</label>
+                            <br />
+
+
+                            <input type="text"
+                                name="firstlastname"
+                                placeholder={t('firstlastname')}
+                                minLength="2"
+                                maxlength="30"
+                                required
+                            />
+                            <input type="email"
+                                name="email"
+                                placeholder={t('email')}
+                            // pattern="/^[a-zA-Z0-9.!#$%’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                            />
+                            <input
+                                type="text"
+                                name="subject"
+                                placeholder={t('subject')}
+                            />
+
+                            <textarea
+                                name="message"
+                                placeholder={t('message')}
+                                maxlength="500"
+                            />
+
+                            <label class="custom-file-upload">
+                                {t('upload.cv')}
+                                <input type="file" name="file" />
                             </label>
-                            <p>
-                                <button type="submit">Send</button>
-                            </p>
+
+                            <button type="submit">{t('send')}</button>
+
                         </form>
 
                         {/* <form id="id-form" method="post" onSubmit={handleSubmit(submitEmail)}>
