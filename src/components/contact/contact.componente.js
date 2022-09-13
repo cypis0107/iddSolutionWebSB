@@ -18,44 +18,20 @@ const ContactUs = () => {
     });
 
 
-    const submitEmail = (event) => {
-        //event.preventDefault();
-        emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE_ID,
-            process.env.REACT_APP_EMAIL_TEMPLATE_ID,
-            document.getElementById("id-form"),
-            process.env.REACT_APP_EMAIL_PUBLIC_KEY);
+    // const submitEmail = (event) => {
+    //     //event.preventDefault();
+    //     emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE_ID,
+    //         process.env.REACT_APP_EMAIL_TEMPLATE_ID,
+    //         document.getElementById("id-form"),
+    //         process.env.REACT_APP_EMAIL_PUBLIC_KEY);
 
-        document.getElementById("id-form").reset();
-        reset();
-    }
-
-
-
-
-    // const submitEmail = async (data, e) => {
-    //     e.preventDefault();
-    //     const { firstName, lastName, email, enquiry } = data;
-    //     const subject = data.subject ? data.subject : '';
-    //     const message = data.message ? data.message : '';
-    //     const file = data.my_file ? data.my_file : '';
-    //     emailjs.send(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, {
-    //         first_name: firstName,
-    //         last_name: lastName,
-    //         email: email,
-    //         enquiry: enquiry,
-    //         subject: subject,
-    //         message: message,
-    //         file: file,
-    //     }, process.env.REACT_APP_EMAIL_PUBLIC_KEY)
-    //         .then((result) => {
-    //             console.log(result.text);
-    //         }, (error) => {
-    //             console.log(error.text);
-    //         });
     //     document.getElementById("id-form").reset();
     //     reset();
+    // }
 
-    // };
+
+
+
 
 
     return (
@@ -87,16 +63,29 @@ const ContactUs = () => {
 
                     <div className='contact-box-form'>
                         <div className="contact-enquiry">{t('form.title')}</div>
-                        {/* enctype="multipart/form-data" */}
-                        <form id="id-form" method="post" onSubmit={handleSubmit(submitEmail)}>
 
+                        <form name="fileForm" enctype="multipart/form-data" data-netlify="true">
+                            <p>
+                                <label>
+                                    <span>Name:</span>
+                                    <input name="name" type="text" />
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    <span>Add file:</span>
+                                    <input name="file" type="file" />
+                                </label>
+                            </p>
+                            <button>Submit</button>
+                        </form>
+
+                        {/* <form id="id-form" method="post" onSubmit={handleSubmit(submitEmail)}>
                             <input type="radio" id="cooperation" name="enquiry" value="cooperation" {...register("enquiry")} />
                             <label >&nbsp; {t('cooperation')}</label>
                             <input type="radio" id="enquiry" name="enquiry" value="career enquiry" {...register("enquiry")} />
                             <label >&nbsp; {t('career.enquiry')}</label>
-
                             <br />
-
                             <input
                                 type="text"
                                 placeholder={t('firstlastname')}
@@ -105,9 +94,9 @@ const ContactUs = () => {
                                     minLength: { value: 2, message: <span>{t('error.min')}</span> },
                                     maxLength: { value: 30, message: <span>{t('error.max')}</span> }
                                 })} />
-                            {errors.firstLastName && <p className="form-errors">{errors.firstLastName.message}</p>}
+                            {errors.firstLastName && <p className="form-errors">{errors.firstLastName.message}</p>} */}
 
-                            <input type="email"
+                        {/* <input type="email"
                                 placeholder={t('email')}
                                 {...register("email", {
                                     required: <span>{t('error.required')}</span>,
@@ -128,7 +117,7 @@ const ContactUs = () => {
                             </label>
 
                             <button type="submit">{t('send')}</button>
-                        </form>
+                        </form> */}
 
 
                     </div>
@@ -180,3 +169,29 @@ to robi z backend nodemailer
     }
 
 */
+
+
+    // const submitEmail = async (data, e) => {
+    //     e.preventDefault();
+    //     const { firstName, lastName, email, enquiry } = data;
+    //     const subject = data.subject ? data.subject : '';
+    //     const message = data.message ? data.message : '';
+    //     const file = data.my_file ? data.my_file : '';
+    //     emailjs.send(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, {
+    //         first_name: firstName,
+    //         last_name: lastName,
+    //         email: email,
+    //         enquiry: enquiry,
+    //         subject: subject,
+    //         message: message,
+    //         file: file,
+    //     }, process.env.REACT_APP_EMAIL_PUBLIC_KEY)
+    //         .then((result) => {
+    //             console.log(result.text);
+    //         }, (error) => {
+    //             console.log(error.text);
+    //         });
+    //     document.getElementById("id-form").reset();
+    //     reset();
+
+    // };
