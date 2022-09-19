@@ -53,22 +53,24 @@ const Menu = () => {
     return (
         <>
             <div>
-                <div className={`nav-header nav-hook-${isScrolling ? 'off' : 'on'}`}>
-                    <a href='#home'><img className={`logo${!isScrolling ? '-small' : ''}`} src={LogoImg} alt='Home' /> </a>
-
-                    {
-                        width < breakpoint ?
-
-
-                            <span onClick={handleClick}>
-                                {hamburgerMenu ? <RiCloseFill size={40} color={'#7F9BC3'} /> : <GiHamburgerMenu size={40} color={'#7F9BC3'} />}
-                            </span>
-                            :
-                            <MenuDesktop />
-
-                    }
-
-                </div>
+                {
+                    width < breakpoint ?
+                        <>
+                            <div className={'nav-header nav-hook-on'}>
+                                <a href='#home'><img className='logo-small' src={LogoImg} alt='Home' /> </a>
+                                <span onClick={handleClick}>
+                                    {hamburgerMenu ? <RiCloseFill size={40} color={'#7F9BC3'} /> : <GiHamburgerMenu size={40} color={'#7F9BC3'} />}
+                                </span>
+                            </div>
+                        </>
+                        :
+                        <>
+                            <div className={`nav-header nav-hook-${isScrolling ? 'off' : 'on'}`}>
+                                <a href='#home'><img className={`logo${!isScrolling ? '-small' : ''}`} src={LogoImg} alt='Home' /> </a>
+                                <MenuDesktop />
+                            </div>
+                        </>
+                }
                 {showMenu()}
 
             </div>
