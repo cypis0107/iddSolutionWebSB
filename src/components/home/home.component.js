@@ -33,9 +33,9 @@ const Home = () => {
                 scrollMarginTop: '45px',
                 backgroundImage: `url(${IndustryHImg})`,
                 backgroundRepeat: "no-repeat",
-                backgroundAttachment: 'fixed',
-                backgroundPosition: 'center center',
-                backgroundSize: 'cover',
+                // backgroundAttachment: 'fixed',
+                // backgroundPosition: 'center center',
+                // backgroundSize: 'cover',
                 width: { width },
                 height: { height }
 
