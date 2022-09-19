@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { PdfProvider } from './contexts/pdf.context';
+import { ViewportProvider } from './contexts/viewport.context'
+import { MenuProvider } from './contexts/menu.context';
 import './i18n';
 
 
@@ -11,7 +13,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <PdfProvider>
-        <App />
+        <MenuProvider>
+          <ViewportProvider>
+            <App />
+          </ViewportProvider>
+        </MenuProvider>
       </PdfProvider>
     </BrowserRouter>
   </React.StrictMode>

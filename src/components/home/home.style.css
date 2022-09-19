@@ -1,11 +1,12 @@
 .home-container {
-    margin-top: 110px;
+    margin-top: 60px;
     width: 100%;
-    height: 82vh;
+    height: 85vh;
     /* border: 2px solid red; */
 }
 
 .home-title {
+
     opacity: 0;
     position: absolute;
     top: 280px;
@@ -15,12 +16,14 @@
     font-size: 3.3rem;
     text-align: center;
     text-shadow: 1px 1px 10px rgb(9, 9, 9);
-    /* -webkit-text-stroke: 0.1px var(--blue-color); */
     text-transform: uppercase;
+
+
 }
 
 .home-title-anim {
     animation: expand-animation 2s 0.2s forwards;
+
 }
 
 @keyframes expand-animation {

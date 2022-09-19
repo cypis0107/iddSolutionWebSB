@@ -1,10 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import InspectionImg from '../../assets/4.jpeg';
 import DesignImg from '../../assets/3.jpeg';
 import DocumentationImg from '../../assets/documentation.jpeg';
 import BgImage from '../../assets/circular-bg.png';
-
+import { ViewportContext } from '../../contexts/viewport.context';
 import AnimationBox from './animation.box';
 import './services.style.css'
 
@@ -14,6 +14,9 @@ const Services = () => {
 
     const myRef = useRef();
     const [elementIsVisable, setElementIsVisable] = useState();
+    const { width, breakpoint } = useContext(ViewportContext);
+
+
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             const entry = entries[0];
@@ -26,6 +29,12 @@ const Services = () => {
     const inspectionList = ['inspection.a', 'inspection.b', 'inspection.c', 'inspection.d'];
     const desingList = ['design.a', 'design.b', 'design.c'];
     const documentationList = ['documentation.a', 'documentation.b', 'documentation.c'];
+
+    if (width < breakpoint) {
+        document.getElementsByClassName("services-content")[0].style.flexDirection = 'olumn';
+
+    }
+
     return (
         <section id='services'
             style={{
@@ -53,4 +62,3 @@ const Services = () => {
     )
 }
 export default Services;
-

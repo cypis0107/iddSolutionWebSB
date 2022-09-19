@@ -50,11 +50,6 @@ const References = () => {
         }}>
             <div className='references-container'>
 
-                {/* <div className='ref-bottom' >
-
-                    <img className='ref-img' src={LogoStarImg} alt='' />
-                </div> */}
-
                 <div className='ref-left'>
                     <img className='rf-img' src={LogoImg} alt='' />
                 </div>

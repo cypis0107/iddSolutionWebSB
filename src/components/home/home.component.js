@@ -1,14 +1,16 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import IndustryHImg from '../../assets/industry-1.jpeg';
 import { useTranslation } from 'react-i18next';
+import { ViewportContext } from '../../contexts/viewport.context';
 
 import './home.style.css';
 
 const Home = () => {
     const { t } = useTranslation();
-
     const myRef = useRef();
     const [elementIsVisable, setElementIsVisable] = useState();
+    const { width, breakpoint } = useContext(ViewportContext);
+
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             const entry = entries[0];
@@ -17,10 +19,16 @@ const Home = () => {
         observer.observe(myRef.current)
 
     }, [])
+    if (width < breakpoint) {
+        document.getElementsByClassName("home-title")[0].style.fontSize = '2rem';
+        document.getElementsByClassName("home-title")[0].style.left = '170px';
+    }
+
+
     return (
         <section id='home'
             style={{
-                scrollMarginTop: '35px',
+                scrollMarginTop: '45px',
                 backgroundImage: `url(${IndustryHImg})`,
                 backgroundRepeat: "no-repeat",
                 backgroundAttachment: 'fixed',

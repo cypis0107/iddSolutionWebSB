@@ -60,12 +60,13 @@ const ContactUs = () => {
                                 name="name"
                                 placeholder={t('firstlastname')}
                                 minLength="2"
-                                maxlength="30"
+                                maxLength="30"
                                 required
                             />
                             <input type="email"
                                 name="email"
                                 placeholder={t('email')}
+                                required
                             />
                             <input
                                 type="text"
@@ -76,11 +77,11 @@ const ContactUs = () => {
                             <textarea
                                 name="message"
                                 placeholder={t('message')}
-                                maxlength="500"
+                                maxLength="500"
                             />
 
                             <div className='custom-file-div'>
-                                <label class="custom-file-upload">
+                                <label className="custom-file-upload">
                                     {!selectedFile ? t('upload.cv')
                                         : <span className='custom-file-name '><MdDriveFileMove size={30} color={'#607D8B'} />
                                             {selectedFile.name}</span>}
