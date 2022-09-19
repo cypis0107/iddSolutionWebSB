@@ -9,7 +9,7 @@ const Home = () => {
     const { t } = useTranslation();
     const myRef = useRef();
     const [elementIsVisable, setElementIsVisable] = useState();
-    const { width, breakpoint } = useContext(ViewportContext);
+    const { width, height, breakpoint } = useContext(ViewportContext);
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -35,7 +35,9 @@ const Home = () => {
                 backgroundRepeat: "no-repeat",
                 backgroundAttachment: 'fixed',
                 backgroundPosition: 'center center',
-                backgroundSize: 'cover'
+                backgroundSize: 'cover',
+                width: { width },
+                height: { height }
 
             }}>
             <div className='home-container' >
