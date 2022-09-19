@@ -31,8 +31,9 @@ const Services = () => {
     const documentationList = ['documentation.a', 'documentation.b', 'documentation.c'];
 
     if (width < breakpoint) {
-        document.getElementsByClassName("services-content")[0].style.flexDirection = 'olumn';
-
+        if (document.getElementsByClassName("services-content")[0]) {
+            document.getElementsByClassName("services-content")[0].style.flexDirection = 'olumn';
+        }
     }
 
     return (
