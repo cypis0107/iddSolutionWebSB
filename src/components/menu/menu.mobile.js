@@ -28,36 +28,21 @@ const MenuMobile = (props) => {
 
         <div id='div-close' className={`${props.visible ? 'menu-mobile-container menu-mobile-container-open' : ' menu-mobile-container menu-mobile-container-close'}`}>
 
-
-            <div className='menu-mobile-box' onClick={handleClick}>
-                <a href='#home'>
-                    <span className='menu-mobile-a '>{t('home')}</span>
-                </a>
-            </div>
-
-            <div className='menu-mobile-box' onClick={handleClick}>
-                <a href='#services'>
-                    <span className='menu-mobile-a '>{t('services')}</span>
-                </a>
-            </div>
-
-            <div className='menu-mobile-box' onClick={handleClick}>
-                <a href='#about'>
-                    <span className='menu-mobile-a '>{t('aboutus')}</span>
-                </a>
-            </div>
-
-            <div className='menu-mobile-box' onClick={handleClick}>
-                <a href='#references'>
-                    <span className='menu-mobile-a '>{t('references')}</span>
-                </a>
-            </div>
-
-            <div className='menu-mobile-box' onClick={handleClick}>
-                <a href='#contact-us'>
-                    <span className='menu-mobile-a '>{t('contactus')}</span>
-                </a>
-            </div>
+            <a href='#home' className='menu-mobile-box' onClick={handleClick}>
+                <span className='menu-mobile-a '>{t('home')}</span>
+            </a>
+            <a href='#services' className='menu-mobile-box' onClick={handleClick}>
+                <span className='menu-mobile-a '>{t('services')}</span>
+            </a>
+            <a href='#about' className='menu-mobile-box' onClick={handleClick}>
+                <span className='menu-mobile-a '>{t('aboutus')}</span>
+            </a>
+            <a href='#references' className='menu-mobile-box' onClick={handleClick}>
+                <span className='menu-mobile-a '>{t('references')}</span>
+            </a>
+            <a href='#contact-us' className='menu-mobile-box' onClick={handleClick}>
+                <span className='menu-mobile-a '>{t('contactus')}</span>
+            </a>
 
             <div className='menu-mobile-lang-box'>
                 <select

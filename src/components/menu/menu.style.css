@@ -97,7 +97,7 @@
 .menu-mobile-container {
     position: fixed;
     margin-top: 20px;
-    height: 100%;
+    height: 80%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -156,22 +156,22 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 10%;
-    background-color: #464655;
-    border-bottom: 1px solid #575766;
+    padding: 7%;
+    background-color: #575766;
+    border-bottom: 2px solid #464655;
     cursor: pointer;
-    transition: all 0.5s;
+    /* transition: all 0.5s; */
 }
 
 .menu-mobile-box:hover {
 
     background-color: #555567;
-    transition: ease-in-out 0.5s;
+    /* transition: ease-in-out 0.5s; */
 }
 
 .menu-mobile-a {
     font-family: var(--nunito-font);
-    color: #ebebd3;
+    color: var(--bg-color);
     text-transform: uppercase;
     font-weight: 700;
     font-size: 1.6rem;
@@ -188,9 +188,9 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 47px;
+    padding: 10px;
     background-color: #464655;
-    border-bottom: 1px solid #575766;
+    border-bottom: 2px solid #575766;
 
 }
 
