@@ -55,12 +55,17 @@ const Menu = () => {
             <div>
                 <div className={`nav-header nav-hook-${isScrolling ? 'off' : 'on'}`}>
                     <a href='#home'><img className={`logo${!isScrolling ? '-small' : ''}`} src={LogoImg} alt='Home' /> </a>
+
                     {
                         width < breakpoint ?
+
+
                             <span onClick={handleClick}>
-                                {hamburgerMenu ? <RiCloseFill size={80} color={'#7F9BC3'} /> : <GiHamburgerMenu size={60} color={'#7F9BC3'} />}
+                                {hamburgerMenu ? <RiCloseFill size={40} color={'#7F9BC3'} /> : <GiHamburgerMenu size={40} color={'#7F9BC3'} />}
                             </span>
-                            : <MenuDesktop />
+                            :
+                            <MenuDesktop />
+
                     }
 
                 </div>

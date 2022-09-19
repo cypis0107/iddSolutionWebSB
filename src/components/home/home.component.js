@@ -35,7 +35,7 @@ const Home = () => {
                 backgroundRepeat: "no-repeat",
                 // backgroundAttachment: 'fixed',
                 // backgroundPosition: 'center center',
-                // backgroundSize: 'cover',
+                backgroundSize: 'cover',
                 width: { width },
                 height: { height }
 
