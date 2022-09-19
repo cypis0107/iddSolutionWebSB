@@ -20,8 +20,10 @@ const Home = () => {
 
     }, [])
     if (width < breakpoint) {
-        document.getElementsByClassName("home-title")[0].style.fontSize = '2rem';
-        document.getElementsByClassName("home-title")[0].style.left = '170px';
+        if (document.getElementsByClassName("home-title")[0]) {
+            document.getElementsByClassName("home-title")[0].style.fontSize = '2rem';
+            document.getElementsByClassName("home-title")[0].style.left = '170px';
+        }
     }
 
 
