@@ -19,6 +19,7 @@ const Menu = () => {
     useEffect(() => {
         const handleScroll = event => {
             window.scrollY > 50 ? setIsScrolling(false) : setIsScrolling(true);
+            console.log(window.scrollY)
         };
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -33,9 +34,10 @@ const Menu = () => {
     }
 
     const showMenu = () => {
+
         if (hamburgerMenu) {
             document.getElementsByClassName("home-title")[0].style.display = 'none'
-            document.body.style.overflow = "hidden"
+            //document.body.style.overflow = "hidden"
             return <MenuMobile visible={true} />
         }
         else {
@@ -43,7 +45,7 @@ const Menu = () => {
                 document.getElementsByClassName("home-title")[0].style.display = 'block'
             }
             if (document.getElementsByClassName("menu-mobile-container")[0]) {
-                document.body.style.overflow = "scroll";
+                //document.body.style.overflow = "scroll";
                 return <MenuMobile visible={false} />
             }
         }
