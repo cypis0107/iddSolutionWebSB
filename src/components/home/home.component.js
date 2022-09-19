@@ -21,8 +21,9 @@ const Home = () => {
     }, [])
     if (width < breakpoint) {
         if (document.getElementsByClassName("home-title")[0]) {
-            document.getElementsByClassName("home-title")[0].style.fontSize = '2rem';
-            document.getElementsByClassName("home-title")[0].style.left = '170px';
+            document.getElementsByClassName("home-title")[0].style.fontSize = '2.2rem';
+            document.getElementsByClassName("home-title")[0].style.top = '35%';
+            document.getElementsByClassName("home-title")[0].style.left = '30px';
         }
     }
 
@@ -42,10 +43,16 @@ const Home = () => {
             }}>
             <div className='home-container' >
                 <div ref={myRef} className={`${elementIsVisable ? 'home-title home-title-anim' : 'home-title'}`}>
-                    {t('home.title.o')}<br />{t('home.title.t')} </div>
+                    {t('home.title.o')} <br /> {t('home.title.t')}
+                </div>
+
             </div>
         </section>
     )
 }
 
 export default Home;
+
+
+
+//  

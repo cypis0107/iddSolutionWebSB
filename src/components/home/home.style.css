@@ -6,42 +6,36 @@
 }
 
 .home-title {
-
-    opacity: 0;
+    /* opacity: 0; */
     position: absolute;
     top: 40%;
     left: 10%;
     color: var(--text-sec-color);
     font-family: var(--roboto-font);
     font-size: 3.3rem;
-    text-align: center;
+    /* text-align: center; */
     text-shadow: 1px 1px 10px rgb(9, 9, 9);
     text-transform: uppercase;
-
-
 }
 
 .home-title-anim {
-    animation: expand-animation 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    /* animation: expand-animation 2s 0.2s forwards; */
+    /* animation: expand-animation 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both; */
+    animation: expand-animation 2s forwards;
 
 }
 
 @keyframes expand-animation {
     0% {
-
-
         transform: translateX(-400px);
-        opacity: 0;
+        /* opacity: 0; */
     }
 
-    40% {
+    /* 40% {
         opacity: 0.6;
-    }
+    } */
 
     100% {
-
         transform: translateX(0);
-        opacity: 1;
+        /* opacity: 1; */
     }
 }
