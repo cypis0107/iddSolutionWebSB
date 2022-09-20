@@ -8,7 +8,9 @@ const AnimationBox = (props) => {
     const { img, title, list } = props;
 
     return (
-        <div className='services-box' onClick={() => { setChangeBoxSize(!changeBoxSize) }} onMouseLeave={() => { !changeBoxSize && setChangeBoxSize(!changeBoxSize) }}>
+        <div className='services-box'
+            onClick={() => { setChangeBoxSize(!changeBoxSize) }}
+            onMouseLeave={() => { !changeBoxSize && setChangeBoxSize(!changeBoxSize) }}>
             <img
                 className='services-img'
                 src={img}
