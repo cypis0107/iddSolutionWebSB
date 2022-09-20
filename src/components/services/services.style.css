@@ -79,8 +79,8 @@ hr {
 .services-box-text {
     height: 45px;
     margin-top: 20px;
-    font-size: 3.5vmin;
-    /* font-size: 1.8rem; */
+
+    font-size: 1.7rem;
     font-family: var(--sections-font);
     text-transform: uppercase;
     color: var(--blue-color);
