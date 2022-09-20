@@ -5,7 +5,7 @@ import DesignImg from '../../assets/3.jpeg';
 import DocumentationImg from '../../assets/documentation.jpeg';
 import BgImage from '../../assets/circular-bg.png';
 import { ViewportContext } from '../../contexts/viewport.context';
-import AnimationBox from './animation.box';
+import DesktopBox from './desktop.box';
 import './services.style.css'
 
 const Services = () => {
@@ -53,9 +53,11 @@ const Services = () => {
                 </div>
 
                 <div className='services-content'>
-                    <AnimationBox img={InspectionImg} title={t('inspection')} list={inspectionList} />
-                    <AnimationBox img={DesignImg} title={t('design')} list={desingList} />
-                    <AnimationBox img={DocumentationImg} title={t('documentation')} list={documentationList} />
+
+                    <DesktopBox img={InspectionImg} title={t('inspection')} list={inspectionList} />
+                    <DesktopBox img={DesignImg} title={t('design')} list={desingList} />
+                    <DesktopBox img={DocumentationImg} title={t('documentation')} list={documentationList} />
+
                 </div>
 
             </div>
