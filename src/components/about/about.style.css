@@ -9,9 +9,11 @@
 
 .about-box {
     margin-top: 80px;
-    margin-left: 200px;
-    width: 35vw;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    width: 45vw;
     height: 100%;
+    overflow: auto;
     /* border: 2px solid burlywood; */
 }
 
