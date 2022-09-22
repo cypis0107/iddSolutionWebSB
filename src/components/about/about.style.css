@@ -8,17 +8,17 @@
 }
 
 .about-box {
-    margin-top: 80px;
-    margin-bottom: 40px;
+    margin-top: 60px;
+    margin-bottom: 20px;
     margin-left: 40px;
-    width: 45vw;
+    width: 53vw;
     height: 100%;
     overflow: auto;
     /* border: 2px solid burlywood; */
 }
 
 .about-title {
-
+    margin-top: 60px;
     font-family: var(--sections-font);
     color: var(--text-color);
     font-size: 2.6rem;
@@ -36,13 +36,29 @@
     }
 
     100% {
-        transform: translateX(0px);
+        transform: translateX(100px);
     }
 }
 
 .about-txt {
+    font-family: var(--nunito-font);
     background: var(--bg-color);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     text-align: left;
     /* border: 2px solid red; */
 }
+
+
+/* @media screen and (max-width: 800px) {
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        height: 85vh;
+        background-image: none;
+       
+}
+}
+
+*/

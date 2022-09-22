@@ -31,11 +31,12 @@ const About = () => {
                 backgroundSize: '40% 100%'
 
             }}>
+            <div className={`${elementIsVisable ? 'about-title about-title-anim' : 'about-title'}`}>{t('aboutus')}</div>
+
             <div ref={myRef} className='about-box '>
-                <div className={`${elementIsVisable ? 'about-title about-title-anim' : 'about-title'}`}>{t('aboutus')}<hr /></div>
 
                 <div className='about-txt'>
-                    <br /><br /><br />
+
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Sequi ducimus soluta aperiam repellendus reiciendis impedit unde laudantium eum!
                     <br /><br />Fuga ad amet error reiciendis ex! Incidunt, enim sed. Voluptatibus
